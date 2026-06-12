@@ -32,7 +32,7 @@ Dependency Injection is a design pattern where objects receive their dependencie
 ## Part 5: Package Structure
 
 ### controller
-Handles the incoming HTTP requests and returns responses.It acts as the entry point for the REST API.
+It handles the incoming HTTP requests and returns responses.It acts as the entry point for the REST API.
 
 ### service
 It contains the business logic. The controller calls the service layer to process data.
@@ -44,10 +44,10 @@ It handles the database operations using Spring Data JPA.It communicates directl
 It contains Java classes that map to database tables using JPA annotations.
 
 ### dto
-Data Transfer Objects, used to shape data sent between the client and server without exposing entities directly.
+This is known as Data Transfer Objects in full, used to shape data sent between the client and server without exposing entities directly.
 
 ### config
-Contains configuration classes such as security settings, CORS configuration, and bean definitions.
+It contains configuration classes such as security settings, CORS configuration, and bean definitions.
 
 ### exception
-Handles custom exceptions and global error handling for the application.
+It handles custom exceptions and global error handling for the application.
