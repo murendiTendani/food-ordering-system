@@ -51,3 +51,14 @@ It contains configuration classes such as security settings, CORS configuration,
 
 ### exception
 It handles custom exceptions and global error handling for the application.
+
+
+## Endpoints
+
+| Method | URL                  | Body       |
+|--------|----------------------|------------|
+| POST   | /api/categories      | { "name" } |
+| GET    | /api/categories      | -          |
+| GET    | /api/categories/{id} | -          |
+| PUT    | /api/categories/{id} | { "name" } |
+| DELETE | /api/categories/{id} | -          |
