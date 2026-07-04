@@ -62,3 +62,27 @@ It handles custom exceptions and global error handling for the application.
 | GET    | /api/categories/{id} | -          |
 | PUT    | /api/categories/{id} | { "name" } |
 | DELETE | /api/categories/{id} | -          |
+
+
+## API Response Format
+
+Every endpoint returns the same JSON structure:
+
+```json
+{
+  "statusCode": 200,
+  "message": "Category retrieved successfully",
+  "data": {
+    "id": 1,
+    "name": "Burgers"
+  },
+  "timestamp": "2026-06-18T08:42:11"
+}
+```
+
+| Field      | Type   | Description                          |
+|------------|--------|--------------------------------------|
+| statusCode | int    | HTTP status code                     |
+| message    | String | Human-readable result description    |
+| data       | T      | The payload (absent on error)        |
+| timestamp  | String | When the response was generated      |
