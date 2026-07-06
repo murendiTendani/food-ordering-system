@@ -59,11 +59,10 @@ public class CategoryController {
                 Response.success("Category updated successfully", updated));
     }
 
-    // DELETE /api/categories/{id} — delete a category
+    // DELETE /api/categories/{id}
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCategory(@PathVariable Long id) {
-
         categoryService.deleteCategory(id);
-        return ResponseEntity.noContent().build(); // 204 No Content
+        return ResponseEntity.noContent().build();
     }
 }
