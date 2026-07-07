@@ -1,6 +1,7 @@
 package com.jumpstart.food_ordering_system.exception;
 
 import com.jumpstart.food_ordering_system.response.Response;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -42,5 +43,21 @@ public class GlobalExceptionHandler {
                         .message("Validation failed")
                         .data(errors)
                         .build());
+    }
+    // 409 - deleting a category that still has menus
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<Response<Object>> handleDataIntegrity(
+            DataIntegrityViolationException ex) {
+        return ResponseEntity
+                .status(HttpStatus.CONFLICT)
+                .body(Response.error(409,
+                        "Cannot be deleted,this record is still referenced by other data"));
+    }
+    // 500 - anything else unexpected
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<Response<Object>> handleGeneric(Exception ex) {
+        return ResponseEntity
+                .status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(Response.error(500, "Something went wrong " + ex.getMessage()));
     }
 }
